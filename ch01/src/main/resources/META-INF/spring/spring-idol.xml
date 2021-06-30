@@ -18,4 +18,10 @@
         <constructor-arg ref="sonnet29"/>
     </bean>
 
+    <!--factory-method позволяет определить статический метод,
+    который должен вызываться для создания экземпляра класса вместо конструктора.-->
+    <bean id="theStage"
+          class="com.springinaction.springidol.Stage"
+          factory-method="getInstance"/>
+
 </beans>
