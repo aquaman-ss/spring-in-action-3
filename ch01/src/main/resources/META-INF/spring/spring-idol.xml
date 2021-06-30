@@ -24,4 +24,8 @@
           class="com.springinaction.springidol.Stage"
           factory-method="getInstance"/>
 
+    <!--Фреймворк Spring создает новый экземпляр при каждом обращении, в объявлении компонента-->
+    <bean id="ticket"
+          class="com.springinaction.springidol.Ticket" scope="prototype"/>
+
 </beans>
