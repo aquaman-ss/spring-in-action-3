@@ -39,8 +39,20 @@
     метод setSong() для записи значения "Jingle Bells" в свойство song.-->
     <bean id="kenny"
           class="com.springinaction.springidol.Instrumentalist">
-        <property name="song" value="Jingle Bells" />
-        <property name="age" value="37" />
+        <property name="song" value="Jingle Bells"/>
+        <property name="age" value="37"/>
+    </bean>
+
+    <bean id="saxophone"
+          class="com.springinaction.springidol.Saxophone"/>
+
+    <bean id="piano"
+          class="com.springinaction.springidol.Piano"/>
+
+    <bean id="kenny2"
+          class="com.springinaction.springidol.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument" ref="saxophone"/>
     </bean>
 
 </beans>

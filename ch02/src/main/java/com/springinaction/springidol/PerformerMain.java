@@ -17,5 +17,8 @@ public class PerformerMain {
         Poem sonnet29 = new Sonnet29();
         Performer dukePoem = new PoeticJuggler(sonnet29);
         Performer dukePoeticJuggler = new PoeticJuggler(10, sonnet29);
+        //
+        Performer kenny2 = (Performer) context.getBean("kenny2");
+        kenny2.perform();
     }
 }
