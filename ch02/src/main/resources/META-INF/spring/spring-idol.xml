@@ -28,4 +28,11 @@
     <bean id="ticket"
           class="com.springinaction.springidol.Ticket" scope="prototype"/>
 
+    <!--После создания экземпляра компонента auditorium будет вызван метод turnOnLights().
+    Перед удалением компонента из контейнера будет вызван метод turnOffLights().-->
+    <bean id="auditorium"
+          class="com.springinaction.springidol.Auditorium"
+          init-method="turnOnLights"
+          destroy-method="turnOffLights"/>
+
 </beans>
