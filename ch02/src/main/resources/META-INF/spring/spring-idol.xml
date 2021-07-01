@@ -35,7 +35,12 @@
           init-method="turnOnLights"
           destroy-method="turnOffLights"/>
 
+    <!--Элемент <property> предписывает фреймворку Spring вызвать
+    метод setSong() для записи значения "Jingle Bells" в свойство song.-->
     <bean id="kenny"
-          class="com.springinaction.springidol.Instrumentalist"/>
+          class="com.springinaction.springidol.Instrumentalist">
+        <property name="song" value="Jingle Bells" />
+        <property name="age" value="37" />
+    </bean>
 
 </beans>

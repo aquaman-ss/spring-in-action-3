@@ -4,6 +4,7 @@ import com.springinaction.springidol.exceptions.PerformanceException;
 
 public class Instrumentalist implements Performer {
 
+    private int age;
     private String song;
     private Instrument instrument;
 
@@ -13,6 +14,10 @@ public class Instrumentalist implements Performer {
     public void perform() throws PerformanceException {
         System.out.print("Playing " + song + " : ");
         instrument.play();
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getSong() {
