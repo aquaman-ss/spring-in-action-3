@@ -35,4 +35,7 @@
           init-method="turnOnLights"
           destroy-method="turnOffLights"/>
 
+    <bean id="kenny"
+          class="com.springinaction.springidol.Instrumentalist"/>
+
 </beans>
