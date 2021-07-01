@@ -55,4 +55,25 @@
         <property name="instrument" ref="saxophone"/>
     </bean>
 
+    <!--В данном случае будет создан объект Saxophone
+    и внедрен в свойство instrument компонента kenny3-->
+    <bean id="kenny3"
+          class="com.springinaction.springidol.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument">
+            <bean class="com.springinaction.springidol.Saxophone"/>
+        </property>
+    </bean>
+
+    <!--Внутренние компоненты можно также внедрять через аргументы конструктора.
+    Здесь экземпляр класса Sonnet29 будет создан как внутренний компонент
+    и передан в виде аргумента конструктору класса PoeticJuggler.-->
+    <bean id="duke2"
+          class="com.springinaction.springidol.PoeticJuggler">
+        <constructor-arg value="15"/>
+        <constructor-arg>
+            <bean class="com.springinaction.springidol.Sonnet29"/>
+        </constructor-arg>
+    </bean>
+
 </beans>
