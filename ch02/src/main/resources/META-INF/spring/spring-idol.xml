@@ -50,6 +50,15 @@
     <bean id="piano"
           class="com.springinaction.springidol.instruments.Piano"/>
 
+    <bean id="guitar"
+          class="com.springinaction.springidol.instruments.Guitar"/>
+
+    <bean id="cymbal"
+          class="com.springinaction.springidol.instruments.Cymbal"/>
+
+    <bean id="harmonica"
+          class="com.springinaction.springidol.instruments.Harmonica"/>
+
     <bean id="kenny2"
           class="com.springinaction.springidol.performers.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
@@ -85,5 +94,16 @@
     <bean id="kenny4" class="com.springinaction.springidol.performers.Instrumentalist"
           p:song="Jingle Bells"
           p:instrument-ref="saxophone"/>
+
+    <bean id="hank"
+          class="com.springinaction.springidol.performers.OneManBand">
+        <property name="instruments">
+            <list>
+                <ref bean="guitar"/>
+                <ref bean="cymbal"/>
+                <ref bean="harmonica"/>
+            </list>
+        </property>
+    </bean>
 
 </beans>
