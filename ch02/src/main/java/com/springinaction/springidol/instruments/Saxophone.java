@@ -1,4 +1,4 @@
-package com.springinaction.springidol;
+package com.springinaction.springidol.instruments;
 
 public class Saxophone implements Instrument {
 

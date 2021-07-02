@@ -6,15 +6,15 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     <!-- Здесь должны находиться объявления компонентов -->
     <bean id="duke"
-          class="com.springinaction.springidol.Juggler">
+          class="com.springinaction.springidol.performers.Juggler">
         <constructor-arg value="15"/>
     </bean>
 
     <bean id="sonnet29"
-          class="com.springinaction.springidol.Sonnet29"/>
+          class="com.springinaction.springidol.poems.Sonnet29"/>
 
     <bean id="poeticDuke"
-          class="com.springinaction.springidol.PoeticJuggler">
+          class="com.springinaction.springidol.performers.PoeticJuggler">
         <constructor-arg value="15"/>
         <constructor-arg ref="sonnet29"/>
     </bean>
@@ -22,36 +22,36 @@
     <!--factory-method позволяет определить статический метод,
     который должен вызываться для создания экземпляра класса вместо конструктора.-->
     <bean id="theStage"
-          class="com.springinaction.springidol.Stage"
+          class="com.springinaction.springidol.services.Stage"
           factory-method="getInstance"/>
 
     <!--Фреймворк Spring создает новый экземпляр при каждом обращении, в объявлении компонента-->
     <bean id="ticket"
-          class="com.springinaction.springidol.Ticket" scope="prototype"/>
+          class="com.springinaction.springidol.services.Ticket" scope="prototype"/>
 
     <!--После создания экземпляра компонента auditorium будет вызван метод turnOnLights().
     Перед удалением компонента из контейнера будет вызван метод turnOffLights().-->
     <bean id="auditorium"
-          class="com.springinaction.springidol.Auditorium"
+          class="com.springinaction.springidol.services.Auditorium"
           init-method="turnOnLights"
           destroy-method="turnOffLights"/>
 
     <!--Элемент <property> предписывает фреймворку Spring вызвать
     метод setSong() для записи значения "Jingle Bells" в свойство song.-->
     <bean id="kenny"
-          class="com.springinaction.springidol.Instrumentalist">
+          class="com.springinaction.springidol.performers.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="age" value="37"/>
     </bean>
 
     <bean id="saxophone"
-          class="com.springinaction.springidol.Saxophone"/>
+          class="com.springinaction.springidol.instruments.Saxophone"/>
 
     <bean id="piano"
-          class="com.springinaction.springidol.Piano"/>
+          class="com.springinaction.springidol.instruments.Piano"/>
 
     <bean id="kenny2"
-          class="com.springinaction.springidol.Instrumentalist">
+          class="com.springinaction.springidol.performers.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="instrument" ref="saxophone"/>
     </bean>
@@ -59,10 +59,10 @@
     <!--В данном случае будет создан объект Saxophone
     и внедрен в свойство instrument компонента kenny3-->
     <bean id="kenny3"
-          class="com.springinaction.springidol.Instrumentalist">
+          class="com.springinaction.springidol.performers.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
         <property name="instrument">
-            <bean class="com.springinaction.springidol.Saxophone"/>
+            <bean class="com.springinaction.springidol.instruments.Saxophone"/>
         </property>
     </bean>
 
@@ -70,10 +70,10 @@
     Здесь экземпляр класса Sonnet29 будет создан как внутренний компонент
     и передан в виде аргумента конструктору класса PoeticJuggler.-->
     <bean id="duke2"
-          class="com.springinaction.springidol.PoeticJuggler">
+          class="com.springinaction.springidol.performers.PoeticJuggler">
         <constructor-arg value="15"/>
         <constructor-arg>
-            <bean class="com.springinaction.springidol.Sonnet29"/>
+            <bean class="com.springinaction.springidol.poems.Sonnet29"/>
         </constructor-arg>
     </bean>
 
@@ -82,7 +82,7 @@
     внедряет в свойство instrument ссылку на компонент с идентификатором saxophone.
     Окончание -ref подсказывает фреймворку Spring, что вместо буквального значения он
     должен внедрить ссылку на соответствующий компонент.-->
-    <bean id="kenny4" class="com.springinaction.springidol.Instrumentalist"
+    <bean id="kenny4" class="com.springinaction.springidol.performers.Instrumentalist"
           p:song="Jingle Bells"
           p:instrument-ref="saxophone"/>
 

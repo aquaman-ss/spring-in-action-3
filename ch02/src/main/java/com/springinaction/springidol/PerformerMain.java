@@ -1,6 +1,11 @@
 package com.springinaction.springidol;
 
 import com.springinaction.springidol.exceptions.PerformanceException;
+import com.springinaction.springidol.performers.Juggler;
+import com.springinaction.springidol.performers.Performer;
+import com.springinaction.springidol.performers.PoeticJuggler;
+import com.springinaction.springidol.poems.Poem;
+import com.springinaction.springidol.poems.Sonnet29;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -1,6 +1,7 @@
-package com.springinaction.springidol;
+package com.springinaction.springidol.performers;
 
 import com.springinaction.springidol.exceptions.PerformanceException;
+import com.springinaction.springidol.instruments.Instrument;
 
 public class Instrumentalist implements Performer {
 
