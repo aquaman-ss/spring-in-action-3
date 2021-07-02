@@ -6,6 +6,6 @@ public class Guitar implements Instrument {
     }
 
     public void play() {
-        System.out.println("Guitar: tring tring tring");
+        System.out.println("tring tring tring");
     }
 }

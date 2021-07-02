@@ -6,6 +6,6 @@ public class Harmonica implements Instrument {
     }
 
     public void play() {
-        System.out.println("Harmonica: hrum hrum hrum");
+        System.out.println("hrum hrum hrum");
     }
 }

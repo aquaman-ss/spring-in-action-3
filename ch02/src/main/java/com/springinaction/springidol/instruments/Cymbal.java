@@ -6,6 +6,6 @@ public class Cymbal implements Instrument {
     }
 
     public void play() {
-        System.out.println("Cymbal: Dzin Dzin Dzin");
+        System.out.println("Dzin Dzin Dzin");
     }
 }

@@ -95,14 +95,18 @@
           p:song="Jingle Bells"
           p:instrument-ref="saxophone"/>
 
+    <!--Атрибут key используется для определения строкового ключа,
+    а атрибут value-ref – для определения ссылочного значения.
+    Элемент <map> – это единственный способ внедрения пар ключ/значение
+    в свойства компонента, когда один из объектов не является строкой.-->
     <bean id="hank"
           class="com.springinaction.springidol.performers.OneManBand">
         <property name="instruments">
-            <list>
-                <ref bean="guitar"/>
-                <ref bean="cymbal"/>
-                <ref bean="harmonica"/>
-            </list>
+            <map>
+                <entry key="GUITAR" value-ref="guitar"/>
+                <entry key="CYMBAL" value-ref="cymbal"/>
+                <entry key="HARMONICA" value-ref="harmonica"/>
+            </map>
         </property>
     </bean>
 
