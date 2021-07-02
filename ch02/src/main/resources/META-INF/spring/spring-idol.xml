@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
@@ -75,5 +76,14 @@
             <bean class="com.springinaction.springidol.Sonnet29"/>
         </constructor-arg>
     </bean>
+
+    <!--Атрибут p:song со значением "Jingle Bells" внедряет это значение в свойство song.
+    Однако атрибут p:instrument-ref со значением "saxophone" в действительности
+    внедряет в свойство instrument ссылку на компонент с идентификатором saxophone.
+    Окончание -ref подсказывает фреймворку Spring, что вместо буквального значения он
+    должен внедрить ссылку на соответствующий компонент.-->
+    <bean id="kenny4" class="com.springinaction.springidol.Instrumentalist"
+          p:song="Jingle Bells"
+          p:instrument-ref="saxophone"/>
 
 </beans>
