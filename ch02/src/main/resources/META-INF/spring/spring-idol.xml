@@ -110,4 +110,18 @@
         </property>
     </bean>
 
+    <!--<property> – элемент для внедрения значения или ссылки на компонент в «обычное» свойство компонента.
+    <props> – элемент для определения коллекций типа java.util.Properties.
+    <prop> – элемент для определения члена коллекции <props>.-->
+    <bean id="hank-prop"
+          class="com.springinaction.springidol.performers.OneManBandProp">
+        <property name="instruments">
+            <props>
+                <prop key="GUITAR">STRUM STRUM STRUM</prop>
+                <prop key="CYMBAL">CRASH CRASH CRASH</prop>
+                <prop key="HARMONICA">HUM HUM HUM</prop>
+            </props>
+        </property>
+    </bean>
+
 </beans>
