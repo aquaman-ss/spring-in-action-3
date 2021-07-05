@@ -115,6 +115,7 @@
     <prop> – элемент для определения члена коллекции <props>.-->
     <bean id="hank-prop"
           class="com.springinaction.springidol.performers.OneManBandProp">
+        <property name="someNonNullProperty"><null/></property>
         <property name="instruments">
             <props>
                 <prop key="GUITAR">STRUM STRUM STRUM</prop>

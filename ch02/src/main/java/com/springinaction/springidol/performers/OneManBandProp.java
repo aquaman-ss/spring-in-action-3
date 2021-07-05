@@ -7,9 +7,14 @@ import java.util.*;
 public class OneManBandProp implements Performer {
 
     private Properties instruments;
+    private String someNonNullProperty = "";
 
     public void setInstruments(Properties instruments) {
         this.instruments = instruments; // Внедрение инструментов в виде отображения (Properties)
+    }
+
+    public void setSomeNonNullProperty(String someNonNullProperty) {
+        this.someNonNullProperty = someNonNullProperty;
     }
 
     public void perform() throws PerformanceException {
