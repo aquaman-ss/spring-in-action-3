@@ -31,5 +31,8 @@ public class PerformerMain {
         //
         Performer hankProp = (Performer) context.getBean("hank-prop");
         hankProp.perform();
+        //
+        Performer carl = (Performer) context.getBean("carl");
+        carl.perform();
     }
 }

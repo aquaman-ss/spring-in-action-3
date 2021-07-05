@@ -125,4 +125,23 @@
         </property>
     </bean>
 
+    <!--Конструкция #{} на языке SpEL.-->
+    <!--Первая часть (перед точкой) ссылается на компонент kenny по его идентификатору.-->
+    <!--Вторая часть ссылается на свойство song компонента kenny.-->
+    <!--Подобное внедрение равносильно carl.setSong(kenny.getSong());-->
+    <bean id="carl"
+          class="com.springinaction.springidol.performers.Instrumentalist">
+        <property name="song" value="#{kenny.song}"/>
+    </bean>
+
+    <!--можно вызывать методы компонентов.-->
+    <!--<bean id="carl-selector"
+          class="com.springinaction.springidol.performers.Instrumentalist">
+        <property name="song" value="#{songSelector.selectSong()}"/>
+    </bean>-->
+    <!--Чтобы избежать исключения NullPointerException, следует задействовать защищенный оператор
+    доступа к свойству (?.): <property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>-->
+    <!--оператор (?.) сначала проверяет, не является ли пустым элемент слева,
+    и только потом выполняет обращение к элементу справа.-->
+
 </beans>
