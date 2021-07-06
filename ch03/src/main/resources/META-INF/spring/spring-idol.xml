@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="saxophone"
+    class="com.springinaction.springidol.instruments.Saxophone"/>
+
+    <bean id="piano"
+    class="com.springinaction.springidol.instruments.Piano"/>
+
+    <bean id="guitar"
+    class="com.springinaction.springidol.instruments.Guitar"/>
+
+    <bean id="cymbal"
+    class="com.springinaction.springidol.instruments.Cymbal"/>
+
+    <bean id="harmonica"
+    class="com.springinaction.springidol.instruments.Harmonica"/>
+
+    <!--Элемент <property> предписывает фреймворку Spring вызвать
+    метод setSong() для записи значения "Jingle Bells" в свойство song.-->
+    <bean id="kenny"
+          class="com.springinaction.springidol.performers.Instrumentalist">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
+    <bean id="david"
+          class="com.springinaction.springidol.performers.Instrumentalist">
+        <property name="song" value="Jingle Bells" />
+        <property name="instrument" ref="saxophone" />
+    </bean>
+
+</beans>
