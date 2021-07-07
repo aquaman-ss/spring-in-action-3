@@ -36,4 +36,17 @@
         <property name="instrument" ref="saxophone"/>
     </bean>
 
+    <bean id="taylor"
+          class="com.springinaction.springidol.performers.Vocalist"
+          parent="basePerformer"/>
+    <bean id="stevie"
+          class="com.springinaction.springidol.performers.Instrumentalist"
+          parent="basePerformer">
+        <property name="instrument" ref="guitar"/>
+    </bean>
+
+    <bean id="basePerformer" abstract="true">
+        <property name="song" value="Somewhere Over the Rainbow"/>
+    </bean>
+
 </beans>

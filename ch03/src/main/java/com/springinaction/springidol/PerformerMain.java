@@ -17,5 +17,11 @@ public class PerformerMain {
         //
         Performer frank = (Performer) context.getBean("frank");
         frank.perform();
+        //
+        Performer taylor = (Performer) context.getBean("taylor");
+        taylor.perform();
+        //
+        Performer stevie = (Performer) context.getBean("stevie");
+        stevie.perform();
     }
 }
