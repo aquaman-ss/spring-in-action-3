@@ -49,4 +49,24 @@
         <property name="song" value="Somewhere Over the Rainbow"/>
     </bean>
 
+    <bean id="harry"
+          class="com.springinaction.springidol.performers.Magician">
+        <property name="magicBox" ref="magicBox"/>
+        <property name="magicWords" value="Bippity boppity boo"/>
+    </bean>
+
+    <bean id="tigerReplacer"
+          class="com.springinaction.springidol.inventory.TigerReplacer"/>
+
+    <!--Компонент magicBox имеет элемент <replaced-method>, который используется
+    для замены метода новой реализацией.
+    В данном случае атрибут name указывает имя замещаемого метода getContents().
+    А атрибут replacer ссылается на компонент tigerReplacer, реализующий замену.-->
+    <bean id="magicBox"
+          class="com.springinaction.springidol.inventory.MagicBoxImpl">
+        <replaced-method
+                name="getContents"
+                replacer="tigerReplacer"/>
+    </bean>
+
 </beans>
