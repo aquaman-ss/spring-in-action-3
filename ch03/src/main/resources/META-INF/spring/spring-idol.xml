@@ -69,4 +69,10 @@
                 replacer="tigerReplacer"/>
     </bean>
 
+    <bean id="stevie-abs"
+          class="com.springinaction.springidol.performers.InstrumentalistAbstract">
+        <lookup-method name="getInstrument" bean="guitar" />
+        <property name="song" value="Greensleeves" />
+    </bean>
+
 </beans>
