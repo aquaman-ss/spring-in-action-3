@@ -80,4 +80,9 @@
           class="com.springinaction.springidol.performers.PoeticJuggler"
           autowire="constructor"/>
 
+    <!--Только для версии (2.0/2.5) < spring-beans-3.0.xsd-->
+    <!--<bean id="duke-auto"
+          class="com.springinaction.springidol.performers.PoeticJuggler"
+          autowire="autodetect"/>-->
+
 </beans>
