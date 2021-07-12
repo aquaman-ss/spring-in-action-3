@@ -61,6 +61,15 @@
         <property name="instrument" ref="saxophone"/>
     </bean>
 
+    <!--Смешивание автоматического и явного связывания – отличный способ устранить неоднозначности,
+    возникающие при автоматическом связывании по типу (byType).-->
+    <bean id="kenny3"
+          class="com.springinaction.springidol.performers.Instrumentalist"
+          autowire="byType">
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument" ref="saxophone"/>
+    </bean>
+
     <!--Это объявление сообщает фреймворку, что он должен исследовать конструктор
     класса PoeticJuggler и попытаться найти в конфигурации компоненты,
     соответствующие аргументам одного из конструкторов.
