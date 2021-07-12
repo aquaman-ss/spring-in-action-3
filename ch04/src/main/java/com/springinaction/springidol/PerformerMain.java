@@ -15,5 +15,8 @@ public class PerformerMain {
         Performer kenny2 = (Performer) context.getBean("kenny2");
         kenny2.perform();
         //
+        Performer duke = (Performer) context.getBean("duke");
+        duke.perform();
+        //
     }
 }
