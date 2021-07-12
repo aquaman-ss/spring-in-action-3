@@ -40,6 +40,21 @@
     <bean id="harmonica"
           class="com.springinaction.springidol.instruments.Harmonica"/>
 
+    <!--id компонента Saxophone совпал с именем свойства instrument
+    и Spring может автоматически связать инструмент,
+    при наличии у компонента kenny атрибута autowire.-->
+    <bean id="instrument"
+          class="com.springinaction.springidol.instruments.Saxophone"/>
+
+    <!--Атрибут autowire со значением byName сообщает фреймворку,
+    что необходимо просмотреть все свойства компонента kenny
+    и отыскать компоненты с соответствующими им именами.-->
+    <bean id="kenny"
+          class="com.springinaction.springidol.performers.Instrumentalist"
+          autowire="byName">
+        <property name="song" value="Jingle Bells"/>
+    </bean>
+
     <bean id="kenny2"
           class="com.springinaction.springidol.performers.Instrumentalist">
         <property name="song" value="Jingle Bells"/>
