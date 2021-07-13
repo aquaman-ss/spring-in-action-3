@@ -7,7 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Instrumentalist implements Performer {
 
     private String song;
-    @Autowired//Аннотировать можно свойства (поля) и вообще избавиться от методов записи
+    //@Autowired//Аннотировать можно свойства (поля) и вообще избавиться от методов записи
+    @Autowired(required = false)//необязательное автоматическое связывание
+    /*Если свойство, отмеченное аннотацией @Autowired,
+    не может быть связано с какимлибо компонентом,
+    операция автоматического связывания терпит неудачу
+    (NoSuchBeanDefinitionException).*/
     private Instrument instrument;
 
     public Instrumentalist() {
