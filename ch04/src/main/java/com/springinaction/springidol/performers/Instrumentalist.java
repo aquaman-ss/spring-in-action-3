@@ -2,17 +2,16 @@ package com.springinaction.springidol.performers;
 
 import com.springinaction.springidol.exceptions.PerformanceException;
 import com.springinaction.springidol.instruments.Instrument;
+import com.springinaction.springidol.qualifiers.StringedInstrument;
+import com.springinaction.springidol.qualifiers.Strummed;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Instrumentalist implements Performer {
 
     private String song;
-    //@Autowired//Аннотировать можно свойства (поля) и вообще избавиться от методов записи
-    @Autowired(required = false)//необязательное автоматическое связывание
-    /*Если свойство, отмеченное аннотацией @Autowired,
-    не может быть связано с какимлибо компонентом,
-    операция автоматического связывания терпит неудачу
-    (NoSuchBeanDefinitionException).*/
+    @Autowired
+    @StringedInstrument
+    @Strummed
     private Instrument instrument;
 
     public Instrumentalist() {

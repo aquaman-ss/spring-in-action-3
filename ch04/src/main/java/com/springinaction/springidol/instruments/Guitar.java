@@ -1,8 +1,10 @@
 package com.springinaction.springidol.instruments;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.springinaction.springidol.qualifiers.StringedInstrument;
+import com.springinaction.springidol.qualifiers.Strummed;
 
-@Qualifier("stringed")//квалифицирует компонент guitar как струнный (stringed) инструмент
+@Strummed
+@StringedInstrument
 public class Guitar implements Instrument {
 
     public Guitar() {
@@ -12,3 +14,5 @@ public class Guitar implements Instrument {
         System.out.println("STRUM STRUM STRUM");
     }
 }
+/*Если класс Guitar окажется единственным с аннотациями @Strummed и @StringedInstrument,
+тогда в свойство instrument будет внедрен компонент этого класса.*/
