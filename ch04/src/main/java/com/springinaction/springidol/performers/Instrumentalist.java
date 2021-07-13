@@ -37,4 +37,22 @@ public class Instrumentalist implements Performer {
         System.out.print("Playing " + song + " : ");
         instrument.play();
     }
+
+    /*Допустим, что имеются два компонента, реализующих интерфейс Instrument.
+    В этом случае аннотация @Autowired не сможет определить,
+    какой из них действительно требуется внедрить.
+
+    Поэтому, вместо того чтобы пытаться угадать, фреймворк возбудит
+    исключение NoSuchBeanDefinitionException.
+
+    Чтобы помочь аннотации @Autowired выбрать требуемый компонент,
+    можно добавить аннотацию @Qualifier.
+
+    В этом примере, аннотация @Qualifier определяет,
+    что для связывания должен использоваться компонент
+    с идентификатором guitar.
+
+    @Autowired
+    @Qualifier("guitar")
+    private Instrument instrument;*/
 }
