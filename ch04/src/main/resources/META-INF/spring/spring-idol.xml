@@ -97,4 +97,10 @@
           class="com.springinaction.springidol.performers.PoeticJuggler"
           autowire="autodetect"/>-->
 
+    <bean id="balisong"
+          class="com.springinaction.springidol.inventory.Balisong"/>
+
+    <bean id="cuterDuke"
+          class="com.springinaction.springidol.performers.KnifeJuggler"/>
+
 </beans>

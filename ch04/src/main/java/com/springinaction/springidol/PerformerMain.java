@@ -18,5 +18,8 @@ public class PerformerMain {
         Performer duke = (Performer) context.getBean("duke");
         duke.perform();
         //
+        Performer cuterDuke = (Performer) context.getBean("cuterDuke");
+        cuterDuke.perform();
+        //
     }
 }
