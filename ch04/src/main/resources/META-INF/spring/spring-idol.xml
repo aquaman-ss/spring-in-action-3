@@ -30,6 +30,12 @@
     <bean id="sonnet29"
           class="com.springinaction.springidol.poems.Sonnet29"/>
 
+    <bean id="song"
+          class="com.springinaction.springidol.songs.JingleBells"/>
+
+    <bean id="jingle-bells"
+          class="com.springinaction.springidol.songs.JingleBells"/>
+
     <bean id="saxophone"
           class="com.springinaction.springidol.instruments.Saxophone"/>
 
@@ -102,5 +108,8 @@
 
     <bean id="cuterDuke"
           class="com.springinaction.springidol.performers.KnifeJuggler"/>
+
+    <bean id="kenny-inject"
+          class="com.springinaction.springidol.performers.InstrumentalistInject"/>
 
 </beans>

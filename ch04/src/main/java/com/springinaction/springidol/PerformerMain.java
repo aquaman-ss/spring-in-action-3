@@ -21,5 +21,8 @@ public class PerformerMain {
         Performer cuterDuke = (Performer) context.getBean("cuterDuke");
         cuterDuke.perform();
         //
+        Performer kennyInject = (Performer) context.getBean("kenny-inject");
+        kennyInject.perform();
+        //
     }
 }
