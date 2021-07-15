@@ -14,6 +14,19 @@
     и отыскать классы, которые можно автоматически зарегистрировать в виде компонентов в контейнере Spring.
     Атрибут base-package элемента <context:component-scan> определяет пакет, откуда следует начинать поиск.-->
 
+    <!--По умолчанию элемент <context:component-scan> требует выполнить поиск классов,
+    отмеченных одной из нескольких специальных аннотаций:
+
+    - @Component – универсальная аннотация, указывающая, что класс является компонентом Spring;
+    - @Controller – указывает, что класс определяет контроллер Spring MVC;
+    - @Repository – указывает, что класс определяет репозиторий данных;
+    - @Service – указывает, что класс определяет службу;
+    - любая пользовательская аннотация, определенная с помощью аннотации @Component.-->
+
+    <!--Для примера предположим, что контекст нашего приложения содержит только компоненты eddie и guitar.
+    В этом случае из XML-файла конфигурации можно удалить явные объявления <bean>,
+    добавив в него элемент <context:component-scan> и пометив классы Instrumentalist и Guitar аннотацией @Component.-->
+
     <context:component-scan
             base-package="com.springinaction.springidol">
     </context:component-scan>
@@ -32,9 +45,6 @@
 
     <bean id="piano"
           class="com.springinaction.springidol.instruments.Piano"/>
-
-    <bean id="guitar"
-          class="com.springinaction.springidol.instruments.Guitar"/>
 
     <bean id="cymbal"
           class="com.springinaction.springidol.instruments.Cymbal"/>

@@ -1,10 +1,8 @@
 package com.springinaction.springidol.instruments;
 
-import com.springinaction.springidol.qualifiers.StringedInstrument;
-import com.springinaction.springidol.qualifiers.Strummed;
+import org.springframework.stereotype.Component;
 
-@Strummed
-@StringedInstrument
+@Component
 public class Guitar implements Instrument {
 
     public Guitar() {
@@ -14,5 +12,11 @@ public class Guitar implements Instrument {
         System.out.println("STRUM STRUM STRUM");
     }
 }
-/*Если класс Guitar окажется единственным с аннотациями @Strummed и @StringedInstrument,
-тогда в свойство instrument будет внедрен компонент этого класса.*/
+/*Когда фреймворк будет просматривать пакет com.springinaction.springidol,
+он обнаружит, что класс Guitar отмечен аннотацией @Component,
+и автоматически зарегистрирует его как компонент.
+
+По умолчанию идентификатор компонента генерируется из имени класса,
+где первый символ имени замещается этим же символом в нижнем регистре.
+
+В случае с классом Guitar компонент получит идентификатор guitar.*/
