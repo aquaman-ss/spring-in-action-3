@@ -3,12 +3,14 @@ package com.springinaction.springidol.performers;
 import com.springinaction.springidol.exceptions.PerformanceException;
 import com.springinaction.springidol.instruments.Instrument;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("eddie")
 public class Instrumentalist implements Performer {
 
     private String song;
+    @Qualifier("guitar")
     @Autowired
     private Instrument instrument;
 

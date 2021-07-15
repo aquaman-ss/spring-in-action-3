@@ -27,9 +27,38 @@
     В этом случае из XML-файла конфигурации можно удалить явные объявления <bean>,
     добавив в него элемент <context:component-scan> и пометив классы Instrumentalist и Guitar аннотацией @Component.-->
 
+    <!--<context:component-scan
+            base-package="com.springinaction.springidol">
+    </context:component-scan>-->
+
+    <!--Дополнительные настройки процедуры поиска можно выполнить, добавляя элементы
+    <context:include-filter> и <context:exclude-filter> в <context:component-scan>.
+
+    Для автоматической регистрации всех классов, реализующих интерфейс Instrument,
+    используется стратегии на основе аннотаций.
+
+    Для этого необходимо открыть исходные тексты всех реализаций интерфейса Instrument
+    и пометить их аннотацией @Component (или любой другой аннотацией из представленных выше).
+    Это как минимум неудобно.
+    А если в приложении используется сторонняя реализация Instrument, это вообще может оказаться невозможным.
+
+    Поэтому вместо использования аннотаций потребуем от элемента
+    <context:component-scan> автоматически зарегистрировать все классы,
+    экземпляры которых могут присваиваться свойствам типа Instrument,
+    добавив фильтр включения.-->
     <context:component-scan
             base-package="com.springinaction.springidol">
+        <context:include-filter type="assignable"
+                                expression="com.springinaction.springidol.instruments.Instrument"/>
+        <!--Чтобы зарегистрировать все реализации интерфейса Instrument,
+        кроме отмеченных пользовательской аннотацией @SkipIt:-->
+        <context:exclude-filter type="annotation"
+                                expression="com.springinaction.springidol.qualifiers.SkipIt"/>
     </context:component-scan>
+    <!--Атрибуты type и expression элемента <context:include-filter>
+    в совокупности определяют стратегию поиска.
+    В данном случае мы потребовали зарегистрировать в виде компонентов Spring все классы,
+    экземпляры которых могут присваиваться свойствам типа Instrument.-->
 
     <bean id="sonnet29"
           class="com.springinaction.springidol.poems.Sonnet29"/>
@@ -40,7 +69,7 @@
     <bean id="jingle-bells"
           class="com.springinaction.springidol.songs.JingleBells"/>
 
-    <bean id="saxophone"
+    <!--<bean id="saxophone"
           class="com.springinaction.springidol.instruments.Saxophone"/>
 
     <bean id="piano"
@@ -50,13 +79,13 @@
           class="com.springinaction.springidol.instruments.Cymbal"/>
 
     <bean id="harmonica"
-          class="com.springinaction.springidol.instruments.Harmonica"/>
+          class="com.springinaction.springidol.instruments.Harmonica"/>-->
 
     <!--id компонента Saxophone совпал с именем свойства instrument
     и Spring может автоматически связать инструмент,
     при наличии у компонента kenny атрибута autowire.-->
-    <bean id="instrument"
-          class="com.springinaction.springidol.instruments.Saxophone"/>
+    <!--<bean id="instrument"
+          class="com.springinaction.springidol.instruments.Saxophone"/>-->
 
     <!--Атрибут autowire со значением byName сообщает фреймворку,
     что необходимо просмотреть все свойства компонента kenny
