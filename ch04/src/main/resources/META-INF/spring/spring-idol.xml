@@ -46,19 +46,26 @@
     <context:component-scan> автоматически зарегистрировать все классы,
     экземпляры которых могут присваиваться свойствам типа Instrument,
     добавив фильтр включения.-->
-    <context:component-scan
+    <!--<context:component-scan
             base-package="com.springinaction.springidol">
         <context:include-filter type="assignable"
                                 expression="com.springinaction.springidol.instruments.Instrument"/>
-        <!--Чтобы зарегистрировать все реализации интерфейса Instrument,
-        кроме отмеченных пользовательской аннотацией @SkipIt:-->
+        Чтобы зарегистрировать все реализации интерфейса Instrument,
+        кроме отмеченных пользовательской аннотацией @SkipIt:
         <context:exclude-filter type="annotation"
                                 expression="com.springinaction.springidol.qualifiers.SkipIt"/>
-    </context:component-scan>
+    </context:component-scan>-->
     <!--Атрибуты type и expression элемента <context:include-filter>
     в совокупности определяют стратегию поиска.
     В данном случае мы потребовали зарегистрировать в виде компонентов Spring все классы,
     экземпляры которых могут присваиваться свойствам типа Instrument.-->
+
+    <!--Элемент <context:component-scan> обеспечивает автоматическую регистрацию компонентов, отмеченных специальными аннотациями.
+    Он также автоматически загружает Java-классы, реализующие конфигурирование, отмеченные аннотацией @Configuration.
+    В данном случае атрибут base-package сообщает фреймворку Spring, что классы, отмеченные аннотацией @Configuration,
+    следует искать в пакете com.springinaction.springidol.-->
+    <context:component-scan
+            base-package="com.springinaction.springidol"/>
 
     <bean id="sonnet29"
           class="com.springinaction.springidol.poems.Sonnet29"/>
