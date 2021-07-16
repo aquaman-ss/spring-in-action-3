@@ -7,146 +7,20 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!--делает все то же, что и элемент <context:annotation-config>,
-    плюс он настраивает фреймворк на автоматическое определение компонентов и их объявление.-->
-
-    <!--Элемент <context:component-scan> заставляет фреймворк просмотреть пакет и все вложенные в него пакеты package
-    и отыскать классы, которые можно автоматически зарегистрировать в виде компонентов в контейнере Spring.
-    Атрибут base-package элемента <context:component-scan> определяет пакет, откуда следует начинать поиск.-->
-
-    <!--По умолчанию элемент <context:component-scan> требует выполнить поиск классов,
-    отмеченных одной из нескольких специальных аннотаций:
-
-    - @Component – универсальная аннотация, указывающая, что класс является компонентом Spring;
-    - @Controller – указывает, что класс определяет контроллер Spring MVC;
-    - @Repository – указывает, что класс определяет репозиторий данных;
-    - @Service – указывает, что класс определяет службу;
-    - любая пользовательская аннотация, определенная с помощью аннотации @Component.-->
-
-    <!--Для примера предположим, что контекст нашего приложения содержит только компоненты eddie и guitar.
-    В этом случае из XML-файла конфигурации можно удалить явные объявления <bean>,
-    добавив в него элемент <context:component-scan> и пометив классы Instrumentalist и Guitar аннотацией @Component.-->
-
-    <!--<context:component-scan
-            base-package="com.springinaction.springidol">
-    </context:component-scan>-->
-
-    <!--Дополнительные настройки процедуры поиска можно выполнить, добавляя элементы
-    <context:include-filter> и <context:exclude-filter> в <context:component-scan>.
-
-    Для автоматической регистрации всех классов, реализующих интерфейс Instrument,
-    используется стратегии на основе аннотаций.
-
-    Для этого необходимо открыть исходные тексты всех реализаций интерфейса Instrument
-    и пометить их аннотацией @Component (или любой другой аннотацией из представленных выше).
-    Это как минимум неудобно.
-    А если в приложении используется сторонняя реализация Instrument, это вообще может оказаться невозможным.
-
-    Поэтому вместо использования аннотаций потребуем от элемента
-    <context:component-scan> автоматически зарегистрировать все классы,
-    экземпляры которых могут присваиваться свойствам типа Instrument,
-    добавив фильтр включения.-->
-    <!--<context:component-scan
+    <context:component-scan
             base-package="com.springinaction.springidol">
         <context:include-filter type="assignable"
                                 expression="com.springinaction.springidol.instruments.Instrument"/>
-        Чтобы зарегистрировать все реализации интерфейса Instrument,
-        кроме отмеченных пользовательской аннотацией @SkipIt:
+        <context:include-filter type="assignable"
+                                expression="com.springinaction.springidol.inventory.Knife"/>
+        <context:include-filter type="assignable"
+                                expression="com.springinaction.springidol.performers.Performer"/>
+        <context:include-filter type="assignable"
+                                expression="com.springinaction.springidol.poems.Poem"/>
+        <context:include-filter type="assignable"
+                                expression="com.springinaction.springidol.songs.Song"/>
         <context:exclude-filter type="annotation"
                                 expression="com.springinaction.springidol.qualifiers.SkipIt"/>
-    </context:component-scan>-->
-    <!--Атрибуты type и expression элемента <context:include-filter>
-    в совокупности определяют стратегию поиска.
-    В данном случае мы потребовали зарегистрировать в виде компонентов Spring все классы,
-    экземпляры которых могут присваиваться свойствам типа Instrument.-->
-
-    <!--Элемент <context:component-scan> обеспечивает автоматическую регистрацию компонентов, отмеченных специальными аннотациями.
-    Он также автоматически загружает Java-классы, реализующие конфигурирование, отмеченные аннотацией @Configuration.
-    В данном случае атрибут base-package сообщает фреймворку Spring, что классы, отмеченные аннотацией @Configuration,
-    следует искать в пакете com.springinaction.springidol.-->
-    <context:component-scan
-            base-package="com.springinaction.springidol"/>
-
-    <bean id="sonnet29"
-          class="com.springinaction.springidol.poems.Sonnet29"/>
-
-    <bean id="song"
-          class="com.springinaction.springidol.songs.JingleBells"/>
-
-    <bean id="jingle-bells"
-          class="com.springinaction.springidol.songs.JingleBells"/>
-
-    <!--<bean id="saxophone"
-          class="com.springinaction.springidol.instruments.Saxophone"/>
-
-    <bean id="piano"
-          class="com.springinaction.springidol.instruments.Piano"/>
-
-    <bean id="cymbal"
-          class="com.springinaction.springidol.instruments.Cymbal"/>
-
-    <bean id="harmonica"
-          class="com.springinaction.springidol.instruments.Harmonica"/>-->
-
-    <!--id компонента Saxophone совпал с именем свойства instrument
-    и Spring может автоматически связать инструмент,
-    при наличии у компонента kenny атрибута autowire.-->
-    <!--<bean id="instrument"
-          class="com.springinaction.springidol.instruments.Saxophone"/>-->
-
-    <!--Атрибут autowire со значением byName сообщает фреймворку,
-    что необходимо просмотреть все свойства компонента kenny
-    и отыскать компоненты с соответствующими им именами.-->
-    <bean id="kenny"
-          class="com.springinaction.springidol.performers.Instrumentalist">
-        <property name="song" value="Jingle Bells"/>
-    </bean>
-
-    <bean id="kenny2"
-          class="com.springinaction.springidol.performers.Instrumentalist">
-        <property name="song" value="Jingle Bells"/>
-        <!--<property name="instrument" ref="saxophone"/>-->
-    </bean>
-
-    <!--Смешивание автоматического и явного связывания – отличный способ устранить неоднозначности,
-    возникающие при автоматическом связывании по типу (byType).-->
-    <bean id="kenny3"
-          class="com.springinaction.springidol.performers.Instrumentalist">
-        <property name="song" value="Jingle Bells"/>
-        <!--<property name="instrument" ref="saxophone"/>-->
-    </bean>
-
-    <!--Это объявление сообщает фреймворку, что он должен исследовать конструктор
-    класса PoeticJuggler и попытаться найти в конфигурации компоненты,
-    соответствующие аргументам одного из конструкторов.
-
-    В конфигурации уже присутствует определение компонента sonnet29, имеющего тип Poem
-    и соответствующего аргументу одного из конструкторов класса PoeticJuggler.
-    Поэтому для создания компонента duke, Spring будет использовать этот конструктор
-    и передаст ему компонент sonnet29.
-
-    В случае обнаружения нескольких компонентов, соответствующих аргументам конструктора,
-    фреймворк Spring не будет пытаться угадать, какой из них использовать.
-
-    Кроме того, если класс имеет несколько конструкторов,
-    каждый из которых отвечает требованиям автоматического связывания,
-    Spring не будет пытаться угадать, какой конструктор использовать.-->
-    <bean id="duke"
-          class="com.springinaction.springidol.performers.PoeticJuggler"
-          autowire="constructor"/>
-
-    <!--Только для версии (2.0/2.5) < spring-beans-3.0.xsd-->
-    <!--<bean id="duke-auto"
-          class="com.springinaction.springidol.performers.PoeticJuggler"
-          autowire="autodetect"/>-->
-
-    <bean id="balisong"
-          class="com.springinaction.springidol.inventory.Balisong"/>
-
-    <bean id="cuterDuke"
-          class="com.springinaction.springidol.performers.KnifeJuggler"/>
-
-    <bean id="kenny-inject"
-          class="com.springinaction.springidol.performers.InstrumentalistInject"/>
+    </context:component-scan>
 
 </beans>

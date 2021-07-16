@@ -10,14 +10,13 @@ import javax.inject.Named;
 public class InstrumentalistInject implements Performer {
 
     @Inject
-    @Named("jingle-bells")
+    @Named("jingleBells")
     private Song song;
     @Inject
     @Named("guitar")
     private Instrument instrument;
 
-    public InstrumentalistInject() {
-    }
+    public InstrumentalistInject() {}
 
     @Override
     public void perform() throws PerformanceException {
@@ -27,9 +26,3 @@ public class InstrumentalistInject implements Performer {
         instrument.play();
     }
 }
-/*Аннотация @Inject тоже может сопровождаться уточняющей аннотацией
-@Named, подобной аннотации @Qualifier.
-
-Аннотация @Qualifier помогает сузить круг компонентов, доступных для выбора
-(используя идентификатор компонента как один из возможных квалификаторов),
-тогда как аннотация @Named однозначно ссылается на идентификаторы компонентов.*/

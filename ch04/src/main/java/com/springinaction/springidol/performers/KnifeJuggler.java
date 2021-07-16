@@ -15,8 +15,7 @@ public class KnifeJuggler extends Juggler {
     @Inject
     private Provider<Knife> knifeProvider;
 
-    public KnifeJuggler() {
-    }
+    public KnifeJuggler() {}
 
     @Inject
     public KnifeJuggler(Provider<Knife> knifeProvider) {
@@ -34,19 +33,3 @@ public class KnifeJuggler extends Juggler {
         knives.forEach(Knife::show);
     }
 }
-/*Имеется класс KnifeJuggler, в экземпляр которого должен быть внедрен
-один или более экземпляров класса Knife (нож).
-
-Предположим, что компонент типа Knife объявлен как имеющий область действия prototype,
-тогда следующий конструктор KnifeJuggler сможет получить пять компонентов типа Knife.
-
-Вместо экземпляров класса Knife на этапе конструирования
-экземпляр KnifeJuggler получит экземпляр Provider<Knife>.
-На этом этапе будет внедрен только экземпляр объекта-посредника Provider.
-
-Внедрение фактических объектов типа Knife будет отложено
-до вызова метода get() объекта-посредника.
-
-В данном случае метод get() вызывается пять раз.
-А поскольку компонент типа Knife имеет область действия prototype,
-во множестве knives будет сохранено пять различных объектов типа Knife.*/

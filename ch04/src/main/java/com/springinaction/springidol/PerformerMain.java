@@ -9,20 +9,20 @@ public class PerformerMain {
     public static void main(String[] args) throws PerformanceException {
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/spring-idol.xml");
         //
-        Performer kenny = (Performer) context.getBean("kenny");
-        kenny.perform();
-        //
-        Performer kenny2 = (Performer) context.getBean("kenny2");
-        kenny2.perform();
-        //
         Performer duke = (Performer) context.getBean("duke");
         duke.perform();
+        //
+        Performer duke15 = (Performer) context.getBean("duke15");
+        duke15.perform();
+        //
+        Performer poeticDuke = (Performer) context.getBean("poeticDuke");
+        poeticDuke.perform();
         //
         Performer cuterDuke = (Performer) context.getBean("cuterDuke");
         cuterDuke.perform();
         //
-        Performer kennyInject = (Performer) context.getBean("kenny-inject");
-        kennyInject.perform();
+        Performer kenny = (Performer) context.getBean("kenny");
+        kenny.perform();
         //
         Performer eddie = (Performer) context.getBean("eddie");
         eddie.perform();

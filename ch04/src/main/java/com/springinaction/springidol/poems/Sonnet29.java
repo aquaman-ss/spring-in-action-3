@@ -1,6 +1,7 @@
 package com.springinaction.springidol.poems;
 
 public class Sonnet29 implements Poem {
+
     private static String[] LINES = {
             "Когда в раздоре с миром и судьбой,",
             "Припомнив годы, полные невзгод,",
@@ -17,8 +18,7 @@ public class Sonnet29 implements Poem {
             "С твоей любовью, с памятью о ней",
             "Всех королей на свете я сильней."};
 
-    public Sonnet29() {
-    }
+    public Sonnet29() {}
 
     public void recite() {
         for (String line : LINES) {

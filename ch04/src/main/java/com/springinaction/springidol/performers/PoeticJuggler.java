@@ -2,15 +2,20 @@ package com.springinaction.springidol.performers;
 
 import com.springinaction.springidol.poems.Poem;
 import com.springinaction.springidol.exceptions.PerformanceException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class PoeticJuggler extends Juggler {
+
+    @Autowired
+    @Qualifier("sonnet29")
     private Poem poem;
 
-    public PoeticJuggler(Poem poem) { // Внедрение поэмы
-        this.poem = poem;
-    }
+    public PoeticJuggler() {}
 
-    public PoeticJuggler(int beanBags, Poem poem) { // Внедрение количества мячиков и поэмы
+    public PoeticJuggler(Poem poem) { this.poem = poem; }
+
+    public PoeticJuggler(int beanBags, Poem poem) {
         super(beanBags);
         this.poem = poem;
     }

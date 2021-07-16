@@ -2,11 +2,8 @@ package com.springinaction.springidol.inventory;
 
 public class Balisong implements Knife {
 
-    public Balisong() {
-    }
+    public Balisong() {}
 
     @Override
-    public void show() {
-        System.out.println("I show balisong knife!");
-    }
+    public void show() { System.out.println("I show balisong knife!"); }
 }
