@@ -27,15 +27,21 @@
     </context:component-scan>
 
     <aop:config>
-        <aop:aspect ref="audience"> <!-- Ссылка на компонент audience -->
-            <aop:before pointcut="execution(* com.springinaction.springidol.performers.Performer.perform(..))"
-                        method="takeSeats"/> <!-- Перед выступлением -->
-            <aop:before pointcut="execution(* com.springinaction.springidol.performers.Performer.perform(..))"
-                        method="turnOffCellPhones"/> <!-- Перед выступлением -->
-            <aop:after-returning pointcut="execution(* com.springinaction.springidol.performers.Performer.perform(..))"
-                                 method="applaud"/> <!-- После выступления -->
-            <aop:after-throwing pointcut="execution(* com.springinaction.springidol.performers.Performer.perform(..))"
-                                method="demandRefund"/> <!-- После неудачного выступления -->
+        <aop:aspect ref="audience">
+            <aop:pointcut id="performance"
+                          expression="execution(* com.springinaction.springidol.performers.Performer.perform(..))"/><!-- Определение среза множества точек сопряжения -->
+            <aop:before
+                    pointcut-ref="performance"
+                    method="takeSeats"/><!-- Ссылка на именованный срез -->
+            <aop:before
+                    pointcut-ref="performance"
+                    method="turnOffCellPhones"/><!-- Ссылка на именованный срез -->
+            <aop:after-returning
+                    pointcut-ref="performance"
+                    method="applaud"/><!-- Ссылка на именованный срез -->
+            <aop:after-throwing
+                    pointcut-ref="performance"
+                    method="demandRefund"/><!-- Ссылка на именованный срез -->
         </aop:aspect>
     </aop:config>
 
